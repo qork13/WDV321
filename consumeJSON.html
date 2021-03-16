@@ -17,26 +17,40 @@
 -->
 
 	<script>
+		save_data();
 
-		var all_student = []
+		var student1;
+		var student2;
+		var student3;
 
 		function get_convert_data(){
 		 var local_student1 = localStorage.getItem("student1");
 		 var local_student2 = localStorage.getItem("student2");
 		 var local_student3 = localStorage.getItem("student3");
 
-		var student1 = JSON.parse(local_student1);
-		var student2 = JSON.parse(local_student2);
-		var student3 = JSON.parse(local_student3);
-
-		all_student.push(student1);
-		all_student.push(student2);
-		all_student.push(student3);
+		student1 = JSON.parse(local_student1);
+		student2 = JSON.parse(local_student2);
+		student3 = JSON.parse(local_student3);
 
 		}
 
 		get_convert_data();
 
+		function populate_data(){
+			document.querySelector("#id1").innerHTML = student1.student_id;
+			document.querySelector("#gpa1").innerHTML = student1.student_gpa;
+
+			var course1_list = document.querySelector("#courses1").innerHTML
+
+			for(let x =0; x < student1.student_courses.length; x++) {
+
+				var create_list_item = document.createElement("li");
+				create_list_item.value = student1.student_courses[x];
+				create_list_item.text = student1.student_courses[x];
+				course1_list.appendChild(create_list_item);
+
+			}
+		}
 
 	</script>
 
@@ -60,7 +74,7 @@
 
 </head>
 
-<body>
+<body onload="populate_data()">
 	<h1>WDV321 Advanced Javascript</h1>
     <h2>Unit-8 JSON Objects</h2>
     <h3>Creating and consuming a JSON object</h3>
