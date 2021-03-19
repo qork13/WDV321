@@ -33,9 +33,22 @@
 			new_p_gpa = document.createElement("p");
 			new_courses_p = document.createElement("p");
 			new_ul = document.createElement("ul");
-			new_li = document.createElement("li");
 
-			document.appendChild(new_div);
+
+			new_h3_student_id.innerHTML = "Student ID: " +javascript_data[x].student_id;
+			new_p_gpa.innerHTML = "Student GPA: " + javascript_data[x].student_gpa;
+
+			for(var y in javascript_data[x].student_courses[y]) {
+				var new_li = document.createElement("li");
+				new_li.appendChild(document.createTextNode(javascript_data[x].student_courses[y]));
+				new_ul.appendChild(new_li);
+			}
+
+			new_div.appendChild(new_h3_student_id);
+			new_div.appendChild(new_p_gpa);
+			new_div.appendChild(new_ul)
+
+			document.querySelector("#studentcard").appendChild(new_div);
 
 
 
@@ -43,7 +56,7 @@
 		}
 	}
 
-	create_card();
+
 	</script>
 <!--
     
@@ -75,19 +88,13 @@
 
 </head>
 
-<body>
+<body onload="create_card()">
 	<h1>WDV321 Advanced Javascript</h1>
     <h2>Unit-8 JSON Objects</h2>
     <h3>Creating and consuming a JSON object</h3>
 
-<div class="studentCard">
-	<h3>Student ID:</h3>
-    <p>Student GPA:</p>
-	<p>Student Courses:
-    	<ul>
-			<!-- display the courses as list items -->
-    	</ul>
-    </p>  
+<div class="studentCard" id="studentcard">
+
 
 </div>    
 
