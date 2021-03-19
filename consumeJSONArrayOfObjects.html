@@ -34,13 +34,12 @@
 			new_courses_p = document.createElement("p");
 			new_ul = document.createElement("ul");
 
-
 			new_h3_student_id.innerHTML = "Student ID: " +javascript_data[x].student_id;
 			new_p_gpa.innerHTML = "Student GPA: " + javascript_data[x].student_gpa;
 
-			for(var y in javascript_data[x].student_courses[y]) {
+			for(var y=0; y < javascript_data[x]["student_courses"].length; y++) {
 				var new_li = document.createElement("li");
-				new_li.appendChild(document.createTextNode(javascript_data[x].student_courses[y]));
+				new_li.appendChild(document.createTextNode(javascript_data[x]["student_courses"][y]));
 				new_ul.appendChild(new_li);
 			}
 
@@ -48,9 +47,8 @@
 			new_div.appendChild(new_p_gpa);
 			new_div.appendChild(new_ul)
 
-			document.querySelector("#studentcard").appendChild(new_div);
-
-
+			document.querySelector("body").appendChild(new_div);
+			document.new_div.setAttribute("class=studentCard")
 
 
 		}
@@ -93,10 +91,7 @@
     <h2>Unit-8 JSON Objects</h2>
     <h3>Creating and consuming a JSON object</h3>
 
-<div class="studentCard" id="studentcard">
 
-
-</div>    
 
 
 </body>
