@@ -1,6 +1,7 @@
 <!doctype html>
 <html>
 <head>
+	<script src="createJSON.js"></script>
 <meta charset="utf-8">
 <title>WDV321 Advanced Javascript - JSON</title>
 <script
@@ -14,6 +15,72 @@
         2. Access the JSON object in local storage and convert it into a Javascript object.
         3. Use the information in the object to complete the student card.   
 -->
+
+	<script>
+		save_data();
+
+		var student1;
+		var student2;
+		var student3;
+
+		function get_convert_data(){
+		 var local_student1 = localStorage.getItem("student1");
+		 var local_student2 = localStorage.getItem("student2");
+		 var local_student3 = localStorage.getItem("student3");
+
+		student1 = JSON.parse(local_student1);
+		student2 = JSON.parse(local_student2);
+		student3 = JSON.parse(local_student3);
+
+		}
+
+		get_convert_data();
+
+		function populate_data(){
+			document.querySelector("#id1").innerHTML = student1.student_id;
+			document.querySelector("#gpa1").innerHTML = student1.student_gpa;
+
+			var course1_list = document.querySelector("#courses1")
+
+			for(let x =0; x < student1.student_courses.length; x++) {
+
+				var create_list_item = document.createElement("li");
+				create_list_item.appendChild(document.createTextNode(student1.student_courses[x]));
+				course1_list.appendChild(create_list_item);
+
+			}
+
+
+			document.querySelector("#id2").innerHTML = student2.student_id;
+			document.querySelector("#gpa2").innerHTML = student2.student_gpa;
+
+			var course2_list = document.querySelector("#courses2")
+
+			for(let x =0; x < student2.student_courses.length; x++) {
+
+				var create_list_item2 = document.createElement("li");
+				create_list_item2.appendChild(document.createTextNode(student2.student_courses[x]));
+				course2_list.appendChild(create_list_item2);
+
+			}
+
+
+			document.querySelector("#id3").innerHTML = student3.student_id;
+			document.querySelector("#gpa3").innerHTML = student3.student_gpa;
+
+			var course3_list = document.querySelector("#courses3")
+
+			for(let x =0; x < student3.student_courses.length; x++) {
+
+				var create_list_item3 = document.createElement("li");
+				create_list_item3.appendChild(document.createTextNode(student3.student_courses[x]));
+				course3_list.appendChild(create_list_item3);
+
+			}
+
+		}
+
+	</script>
 
 <style>
 	.studentCard	{
@@ -35,22 +102,42 @@
 
 </head>
 
-<body>
+<body onload="populate_data()">
 	<h1>WDV321 Advanced Javascript</h1>
     <h2>Unit-8 JSON Objects</h2>
     <h3>Creating and consuming a JSON object</h3>
 
 <div class="studentCard">
-	<h3>Student ID:</h3>
-    <p>Student GPA:</p>
+	<h3>Student ID:<span id="id1"></span></h3>
+    <p>Student GPA:<span id="gpa1"></span></p>
 	<p>Student Courses:
-    	<ul>
+    	<ul id="courses1">
 			<!-- display the courses as list items -->
     	</ul>
     </p>  
 
-</div>    
+</div>
 
+	<div class="studentCard">
+		<h3>Student ID:<span id="id2"></span></h3>
+		<p>Student GPA:<span id="gpa2"></span></p>
+		<p>Student Courses:
+		<ul id="courses2">
+			<!-- display the courses as list items -->
+		</ul>
+		</p>
 
+	</div>
+
+	<div class="studentCard">
+		<h3>Student ID:<span id="id3"></span></h3>
+		<p>Student GPA:<span id="gpa3"></span></p>
+		<p>Student Courses:
+		<ul id="courses3">
+			<!-- display the courses as list items -->
+		</ul>
+		</p>
+
+	</div>
 </body>
 </html>

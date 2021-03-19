@@ -27,8 +27,25 @@
 		student_id = 750056
 		student_gpa = 1.85
 		student_courses = ["WDV101","WDV131","WDV105","WDV221","WDV205"]		
-		
-		
+
+
+
 */
+
+function create_and_students(){
+
+student1 = {student_id:332443, student_gpa:3.6, student_courses:["WDV101","WDV131","WDV105"]};
+student2 = {student_id:545467, student_gpa:2.7, student_courses:["WDV101","WDV131","WDV105","WDV221","WDV205"]	};
+student3 = {student_id:128574, student_gpa:3.4, student_courses:["WDV101","WDV131","WDV105","WDV221","WDV205","WDV341"]};
+student4 = {student_id:750056, student_gpa:1.85, student_courses:["WDV101","WDV131","WDV105","WDV221","WDV205"]	};
+
+student = [student1, student2, student3, student4];
+
+student_object = {student};
+
+json_student_object = JSON.stringify(student_object);
+
+localStorage.setItem("allstudents", json_student_object);
+    }
 
 

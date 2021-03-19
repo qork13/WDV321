@@ -3,11 +3,48 @@
 <head>
 <meta charset="utf-8">
 <title>WDV321 Advanced Javascript - JSON</title>
-<script
+
+	<script
   src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
   integrity="sha256-3edrmyuQ0w65f8gfBsqowzjJe2iM6n0nKciPUp8y+7E="
   crossorigin="anonymous"></script>
 
+	<script src="createJSONArray.js"></script>
+
+	<script>
+	create_and_students();
+
+
+	var javascript_data;
+
+	function access_local_storage(){
+		var javascript_data_object = JSON.parse(localStorage.getItem("allstudents"));
+	 javascript_data = javascript_data_object["student"]
+
+	}
+
+	access_local_storage();
+
+	function create_card(){
+		for(var x in javascript_data) {
+
+			new_div = document.createElement("div");
+			new_h3_student_id = document.createElement("h3");
+			new_p_gpa = document.createElement("p");
+			new_courses_p = document.createElement("p");
+			new_ul = document.createElement("ul");
+			new_li = document.createElement("li");
+
+			document.appendChild(new_div);
+
+
+
+
+		}
+	}
+
+	create_card();
+	</script>
 <!--
     
     Instructions:
