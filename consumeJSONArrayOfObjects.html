@@ -28,18 +28,11 @@
 		for(var x in javascript_data) {
 			new_div = document.createElement("div");
 			new_div.classList.add("studentCard")
-
-			new_h3_student_id = document.createElement("h3");
-
-			
-
-			new_p_gpa = document.createElement("p");
-			new_courses_p = document.createElement("p");
 			new_ul = document.createElement("ul");
 
-			new_h3_student_id.innerHTML = "Student ID: " +javascript_data[x].student_id;
-			new_p_gpa.innerHTML = "Student GPA: " + javascript_data[x].student_gpa;
-			new_courses_p.innerHTML = "Student Courses: "
+			var new_h3_student_id = $("<h3>Student ID:" + javascript_data[x].student_id + "</h3>");
+			var new_p_gpa = $("<p> Student GPA: " + javascript_data[x].student_gpa + "</p>");
+			var new_courses_p = "<p>Student Courses:</p>"
 
 			for(var y=0; y < javascript_data[x]["student_courses"].length; y++) {
 				var new_li = document.createElement("li");
