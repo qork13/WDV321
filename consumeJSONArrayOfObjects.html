@@ -14,7 +14,6 @@
 	<script>
 	create_and_students();
 
-
 	var javascript_data;
 
 	function access_local_storage(){
@@ -27,34 +26,35 @@
 
 	function create_card(){
 		for(var x in javascript_data) {
-
 			new_div = document.createElement("div");
+			new_div.classList.add("studentCard")
+
 			new_h3_student_id = document.createElement("h3");
+
+			
+
 			new_p_gpa = document.createElement("p");
 			new_courses_p = document.createElement("p");
 			new_ul = document.createElement("ul");
 
 			new_h3_student_id.innerHTML = "Student ID: " +javascript_data[x].student_id;
 			new_p_gpa.innerHTML = "Student GPA: " + javascript_data[x].student_gpa;
+			new_courses_p.innerHTML = "Student Courses: "
 
 			for(var y=0; y < javascript_data[x]["student_courses"].length; y++) {
 				var new_li = document.createElement("li");
-				new_li.appendChild(document.createTextNode(javascript_data[x]["student_courses"][y]));
-				new_ul.appendChild(new_li);
+				$(new_li).append(document.createTextNode(javascript_data[x]["student_courses"][y]));
+				$(new_ul).append(new_li);
 			}
 
-			new_div.appendChild(new_h3_student_id);
-			new_div.appendChild(new_p_gpa);
-			new_div.appendChild(new_ul)
+			$(new_div).append(new_h3_student_id);
+			$(new_div).append(new_p_gpa);
+			$(new_div).append(new_courses_p);
+			$(new_div).append(new_ul);
 
-			document.querySelector("body").appendChild(new_div);
-			document.new_div.setAttribute("class=studentCard")
-
-
+			$("body").append(new_div);
 		}
 	}
-
-
 	</script>
 <!--
     
@@ -90,9 +90,5 @@
 	<h1>WDV321 Advanced Javascript</h1>
     <h2>Unit-8 JSON Objects</h2>
     <h3>Creating and consuming a JSON object</h3>
-
-
-
-
 </body>
 </html>
