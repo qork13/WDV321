@@ -31,7 +31,6 @@
 		student1 = JSON.parse(local_student1);
 		student2 = JSON.parse(local_student2);
 		student3 = JSON.parse(local_student3);
-
 		}
 
 		get_convert_data();
@@ -43,13 +42,10 @@
 			var course1_list = document.querySelector("#courses1")
 
 			for(let x =0; x < student1.student_courses.length; x++) {
-
 				var create_list_item = document.createElement("li");
 				create_list_item.appendChild(document.createTextNode(student1.student_courses[x]));
 				course1_list.appendChild(create_list_item);
-
 			}
-
 
 			document.querySelector("#id2").innerHTML = student2.student_id;
 			document.querySelector("#gpa2").innerHTML = student2.student_gpa;
@@ -57,13 +53,10 @@
 			var course2_list = document.querySelector("#courses2")
 
 			for(let x =0; x < student2.student_courses.length; x++) {
-
 				var create_list_item2 = document.createElement("li");
 				create_list_item2.appendChild(document.createTextNode(student2.student_courses[x]));
 				course2_list.appendChild(create_list_item2);
-
 			}
-
 
 			document.querySelector("#id3").innerHTML = student3.student_id;
 			document.querySelector("#gpa3").innerHTML = student3.student_gpa;
@@ -71,13 +64,10 @@
 			var course3_list = document.querySelector("#courses3")
 
 			for(let x =0; x < student3.student_courses.length; x++) {
-
 				var create_list_item3 = document.createElement("li");
 				create_list_item3.appendChild(document.createTextNode(student3.student_courses[x]));
 				course3_list.appendChild(create_list_item3);
-
 			}
-
 		}
 
 	</script>
