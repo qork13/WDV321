@@ -14,7 +14,6 @@
 	<script>
 	create_and_students();
 
-
 	var javascript_data;
 
 	function access_local_storage(){
@@ -27,23 +26,28 @@
 
 	function create_card(){
 		for(var x in javascript_data) {
-
 			new_div = document.createElement("div");
-			new_h3_student_id = document.createElement("h3");
-			new_p_gpa = document.createElement("p");
-			new_courses_p = document.createElement("p");
+			new_div.classList.add("studentCard")
 			new_ul = document.createElement("ul");
-			new_li = document.createElement("li");
 
-			document.appendChild(new_div);
+			var new_h3_student_id = $("<h3>Student ID:" + javascript_data[x].student_id + "</h3>");
+			var new_p_gpa = $("<p> Student GPA: " + javascript_data[x].student_gpa + "</p>");
+			var new_courses_p = "<p>Student Courses:</p>"
 
+			for(var y=0; y < javascript_data[x]["student_courses"].length; y++) {
+				var new_li = document.createElement("li");
+				$(new_li).append(document.createTextNode(javascript_data[x]["student_courses"][y]));
+				$(new_ul).append(new_li);
+			}
 
+			$(new_div).append(new_h3_student_id);
+			$(new_div).append(new_p_gpa);
+			$(new_div).append(new_courses_p);
+			$(new_div).append(new_ul);
 
-
+			$("body").append(new_div);
 		}
 	}
-
-	create_card();
 	</script>
 <!--
     
@@ -75,22 +79,9 @@
 
 </head>
 
-<body>
+<body onload="create_card()">
 	<h1>WDV321 Advanced Javascript</h1>
     <h2>Unit-8 JSON Objects</h2>
     <h3>Creating and consuming a JSON object</h3>
-
-<div class="studentCard">
-	<h3>Student ID:</h3>
-    <p>Student GPA:</p>
-	<p>Student Courses:
-    	<ul>
-			<!-- display the courses as list items -->
-    	</ul>
-    </p>  
-
-</div>    
-
-
 </body>
 </html>
